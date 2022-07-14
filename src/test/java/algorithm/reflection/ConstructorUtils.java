@@ -1,4 +1,4 @@
-package com.knubisoft.tasks.algorithm.reflection;
+package algorithm.reflection;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

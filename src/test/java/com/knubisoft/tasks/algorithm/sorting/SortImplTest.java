@@ -1,5 +1,7 @@
 package com.knubisoft.tasks.algorithm.sorting;
 
+import algorithm.sorting.Sort;
+import algorithm.sorting.SortImpl;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

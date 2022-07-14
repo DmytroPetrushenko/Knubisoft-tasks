@@ -1,6 +1,6 @@
-package com.knubisoft.tasks.algorithm.xml;
+package algorithm.xml;
 
-import com.knubisoft.tasks.algorithm.ModelRoot;
+import algorithm.ModelRoot;
 
 import java.util.List;
 

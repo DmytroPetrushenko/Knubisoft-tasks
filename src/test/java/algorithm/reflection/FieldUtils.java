@@ -3,7 +3,7 @@
 // (powered by FernFlower decompiler)
 //
 
-package com.knubisoft.tasks.algorithm.reflection;
+package algorithm.reflection;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;

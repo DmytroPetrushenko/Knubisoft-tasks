@@ -1,6 +1,8 @@
 package com.knubisoft.tasks.algorithm.json;
 
-import com.knubisoft.tasks.algorithm.ModelRoot;
+import algorithm.ModelRoot;
+import algorithm.json.JsonTasks;
+import algorithm.json.JsonTasksImpl;
 import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.Test;
 

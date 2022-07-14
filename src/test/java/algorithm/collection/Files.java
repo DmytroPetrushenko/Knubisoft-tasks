@@ -1,4 +1,4 @@
-package com.knubisoft.tasks.algorithm.collection;
+package algorithm.collection;
 
 import java.io.File;
 import java.io.FileNotFoundException;

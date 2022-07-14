@@ -1,6 +1,8 @@
 package com.knubisoft.tasks.algorithm.xml;
 
-import com.knubisoft.tasks.algorithm.ModelRoot;
+import algorithm.ModelRoot;
+import algorithm.xml.XMLTasks;
+import algorithm.xml.XMLTasksImpl;
 import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.Test;
 

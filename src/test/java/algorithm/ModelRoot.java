@@ -1,4 +1,4 @@
-package com.knubisoft.tasks.algorithm;
+package algorithm;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.knubisoft.tasks.algorithm.fibonacci;
+package algorithm.fibonacci;
 
 public interface Fibonacci {
     /**

@@ -1,4 +1,4 @@
-package com.knubisoft.tasks.algorithm.search;
+package algorithm.search;
 
 public interface Search {
 

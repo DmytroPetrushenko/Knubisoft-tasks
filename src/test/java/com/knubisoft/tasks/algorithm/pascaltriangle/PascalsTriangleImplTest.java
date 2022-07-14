@@ -1,5 +1,7 @@
 package com.knubisoft.tasks.algorithm.pascaltriangle;
 
+import algorithm.pascaltriangle.PascalsTriangle;
+import algorithm.pascaltriangle.PascalsTriangleImpl;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

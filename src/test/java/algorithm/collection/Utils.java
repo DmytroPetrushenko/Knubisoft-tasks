@@ -1,4 +1,4 @@
-package com.knubisoft.tasks.algorithm.collection;
+package algorithm.collection;
 
 import org.apache.commons.collections4.comparators.ComparatorChain;
 

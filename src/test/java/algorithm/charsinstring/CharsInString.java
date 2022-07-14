@@ -1,4 +1,4 @@
-package com.knubisoft.tasks.algorithm.charsinstring;
+package algorithm.charsinstring;
 
 import java.util.Map;
 
