@@ -107,6 +107,7 @@ public class NumbersTasksImpl implements NumbersTasks {
     public boolean isAutomorphic(int number) {
         String numberString = String.valueOf(number);
         String result = String.valueOf((long) Math.pow(number, 2));
-        return numberString.compareTo(result.substring(result.length() - numberString.length())) == 0;
+        return numberString.compareTo(result
+                .substring(result.length() - numberString.length())) == 0;
     }
 }
