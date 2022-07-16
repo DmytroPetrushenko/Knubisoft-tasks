@@ -35,7 +35,7 @@ public class PatternTasksTest {
 
     @Test
     public void matchByCharactersFail() {
-        assertThrows(IllegalArgumentException.class, () -> instance.haveSetOfCharacters(null));
+        assertThrows(IllegalArgumentException.class, () -> instance.matchByCharacters(null));
     }
 
     @Test

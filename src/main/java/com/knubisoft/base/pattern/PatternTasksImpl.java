@@ -4,22 +4,32 @@ public class PatternTasksImpl implements PatternTasks {
 
     @Override
     public boolean haveSetOfCharacters(String text) {
-        return false;
+        return text.matches("[a-zA-Z\\d]*");
     }
 
     @Override
     public String matchByCharacters(String text) {
-        return null;
+        if (text == null) {
+            throw new IllegalArgumentException();
+        }
+        return !text.isEmpty() && text.matches("[pq]*") ? "Found a match!" : "Not matched!";
     }
 
     @Override
     public String matchStartAndEnd(String text) {
-        return null;
+        if (text == null) {
+            throw new IllegalArgumentException();
+        }
+        return text.matches(".*\\w+g\\w+.*") ? "Found a match!" : "Not matched!";
     }
 
     @Override
     public String matchIpAddress(String text) {
-        return null;
+        if (text == null || text.isBlank()) {
+            throw new IllegalArgumentException();
+        }
+
+        return text.replaceAll("\\b0+", "");
     }
 
     @Override
