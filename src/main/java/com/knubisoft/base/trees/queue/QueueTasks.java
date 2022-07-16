@@ -1,6 +1,6 @@
-package com.knubisoft.base.queue;
+package com.knubisoft.base.trees.queue;
 
-import com.knubisoft.base.queue.car.Car;
+import com.knubisoft.base.trees.queue.car.Car;
 
 import java.util.List;
 import java.util.PriorityQueue;

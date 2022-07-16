@@ -1,4 +1,4 @@
-package com.knubisoft.base.queue.car;
+package com.knubisoft.base.trees.queue.car;
 
 public class Car {
 

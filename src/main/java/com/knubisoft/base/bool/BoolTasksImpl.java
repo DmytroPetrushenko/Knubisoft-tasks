@@ -14,17 +14,15 @@ public class BoolTasksImpl implements BoolTasks {
     @Override
     public Boolean isFalseAutobox(boolean value) {
         if (!value) {
-            Boolean booleanWrap = value;
-            return booleanWrap;
+            return value;
         }
         return true;
     }
 
     @Override
     public boolean isTrueUnbox(Boolean value) {
-        if (value) {
-            boolean bol = value;
-            return bol;
+        if (value.booleanValue()) {
+            return true;
         }
         return false;
     }
@@ -32,8 +30,7 @@ public class BoolTasksImpl implements BoolTasks {
     @Override
     public Boolean isFalseUnbox(boolean value) {
         if (!value) {
-            boolean bol = value;
-            return bol;
+            return value;
         }
         return value;
     }

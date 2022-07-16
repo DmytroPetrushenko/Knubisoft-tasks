@@ -6,16 +6,17 @@ public interface NumbersTasks {
 
     /**
      * Given two numbers, firstNumber, and secondNumber, swap two numbers without using a third variable.
-     *
+     * <p>
      * Example:
+     * <p>
+     * input: firstNumber - 45, secondNumber - 67
+     * expected result: firstNumber - 67, secondNumber - 45
      *
-     *     input: firstNumber - 45, secondNumber - 67
-     *     expected result: firstNumber - 67, secondNumber - 45
-     *
-     * @param firstNumber number to swap.
+     * @param firstNumber  number to swap.
      * @param secondNumber number to swap.
+     * @return
      */
-    void swapTwoNumbersWithoutUsingTemporaryVariable(int firstNumber, int secondNumber);
+    int[] swapTwoNumbersWithoutUsingTemporaryVariable(int firstNumber, int secondNumber);
 
     /**
      * Given an integer, the task is to find out whether the given number is an Ugly number or not .

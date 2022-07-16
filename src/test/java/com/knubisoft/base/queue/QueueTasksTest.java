@@ -1,6 +1,8 @@
 package com.knubisoft.base.queue;
 
-import com.knubisoft.base.queue.car.Car;
+import com.knubisoft.base.trees.queue.QueueTasks;
+import com.knubisoft.base.trees.queue.QueueTasksImpl;
+import com.knubisoft.base.trees.queue.car.Car;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;

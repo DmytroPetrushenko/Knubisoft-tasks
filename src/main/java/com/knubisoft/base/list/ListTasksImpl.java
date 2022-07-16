@@ -1,7 +1,15 @@
 package com.knubisoft.base.list;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Objects;
+import java.util.Random;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ListTasksImpl implements ListTasks {
     @Override
@@ -11,19 +19,17 @@ public class ListTasksImpl implements ListTasks {
 
     @Override
     public List<String> getElementsByIndexes(List<String> elements, int[] indexes) {
-        List<String> result;
         if (indexes == null) {
             throw new IllegalArgumentException();
         }
-        result = new ArrayList<>(elements);
         for (int i : indexes) {
-            if(result.size() > i && i > 0){
-                result.add(result.get(i));
+            if(elements.size() > i && i > 0){
+                elements.add(elements.get(i));
             } else {
                 throw new IllegalArgumentException();
             }
         }
-        return result;
+        return elements;
     }
 
     @Override
@@ -31,15 +37,14 @@ public class ListTasksImpl implements ListTasks {
         if (indexes == null) {
             throw new IllegalArgumentException();
         }
-        ArrayList<String> newArrayList = new ArrayList<>(elements);
         for (int i : indexes) {
-            if (newArrayList.size() > i && i > 0) {
-                newArrayList.add(i, newArrayList.get(i));
+            if (elements.size() > i && i > 0) {
+                elements.add(i, elements.get(i));
             } else {
                 throw new IllegalArgumentException();
             }
         }
-        return newArrayList;
+        return elements;
     }
 
     @Override
@@ -47,16 +52,15 @@ public class ListTasksImpl implements ListTasks {
         if (indexes == null) {
             throw new IllegalArgumentException();
         }
-        LinkedList<String> result = new LinkedList<>(elements);
         for (int i : indexes) {
-            if (result.size() > i || i > 0) {
-                result.set(i, elements.get(i));
+            if (elements.size() > i || i > 0) {
+                elements.set(i, elements.get(i));
             } else {
                 throw new IllegalArgumentException();
             }
         }
 
-        return result;
+        return elements;
     }
 
     @Override
@@ -69,66 +73,44 @@ public class ListTasksImpl implements ListTasks {
 
     @Override
     public List<Long> merge(List<Integer> first, List<Long> second, List<String> third) {
-        List<Long> result = new LinkedList<>();
         if (third.contains(null) || second.contains(null) || first.contains(null)) {
             throw new NullPointerException();
         }
-        List<Long> firstLong = first.stream().map(Integer::longValue).collect(Collectors.toList());
-        List<Long> thirdLong = third.stream().map(Long::parseLong).collect(Collectors.toList());
-        result.addAll(firstLong);
-        result.addAll(second);
-        result.addAll(thirdLong);
-        return result;
+        List<Long> firstLong = first.stream()
+                .map(Integer::longValue)
+                .collect(Collectors.toList());
+        List<Long> thirdLong = third.stream()
+                .map(Long::parseLong)
+                .collect(Collectors.toList());
+        return Stream.of(firstLong, second, thirdLong)
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
     }
-
 
     @Override
     public int findMaxValue(List<Integer> first, List<Integer> second, List<Integer> third) {
-        List<Integer> listUnion = new ArrayList<>(first);
-        listUnion.addAll(second);
-        listUnion.addAll(third);
-        Integer maxValue = listUnion.get(0);
-        for (int i = 1; i < listUnion.size() - 1; i++) {
-            Integer currentValue = listUnion.get(i);
-            if (currentValue > maxValue) {
-                maxValue = currentValue;
-            }
-        }
-        return maxValue;
+        return Stream.of(first, second, third)
+                .flatMap(Collection::stream)
+                .max(Comparator.naturalOrder())
+                .orElseThrow();
     }
 
     @Override
     public int findMinValue(List<Integer> first, List<Integer> second, List<Integer> third) {
-        List<Integer> listUnion = new ArrayList<>(first);
-        listUnion.addAll(second);
-        listUnion.addAll(third);
-        Integer minValue = listUnion.get(0);
-        for (int i = 1; i < listUnion.size() - 1; i++) {
-            Integer currentValue = listUnion.get(i);
-            if (currentValue < minValue) {
-                minValue = currentValue;
-            }
-        }
-        return minValue;
+        return Stream.of(first, second, third)
+                .flatMap(Collection::stream)
+                .min(Comparator.naturalOrder())
+                .orElseThrow();
     }
 
     @Override
     public int multiplyMax2Elements(List<Integer> first, List<Integer> second, List<Integer> third) {
-        List<Integer> listUnion = new ArrayList<>(first);
-        listUnion.addAll(second);
-        listUnion.addAll(third);
-        int size = listUnion.size();
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < size - i - 1; j++) {
-                Integer firstValue = listUnion.get(j);
-                Integer secondValue = listUnion.get(j + 1);
-                if ( firstValue > secondValue) {
-                    listUnion.set(j, secondValue);
-                    listUnion.set(j + 1, firstValue);
-                }
-            }
-        }
-        return listUnion.get(size - 1) * listUnion.get(size - 2);
+        return Stream.of(first, second, third)
+                .flatMap(Collection::stream)
+                .sorted(Comparator.reverseOrder())
+                .limit(2)
+                .reduce((x, y) -> x * y)
+                .orElseThrow();
     }
 
     @Override

@@ -7,8 +7,16 @@ import java.math.BigInteger;
 import static org.junit.jupiter.api.Assertions.*;
 
 class NumbersTasksTest {
-
+    private static final int FIRST_PARAMETER = 1;
+    private static final int SECOND_PARAMETER = 2;
     NumbersTasks numbersTasks = new NumbersTasksImpl();
+
+    @Test
+    void swapTwoNumbersWithoutUsingTemporaryVariableSuccessful() {
+        int[] result = numbersTasks.swapTwoNumbersWithoutUsingTemporaryVariable(FIRST_PARAMETER, SECOND_PARAMETER);
+        assertEquals(SECOND_PARAMETER, result[0]);
+        assertEquals(FIRST_PARAMETER, result[1]);
+    }
 
     @Test
     void isUglyNumber() {
