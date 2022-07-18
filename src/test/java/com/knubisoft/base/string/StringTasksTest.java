@@ -26,8 +26,8 @@ public class StringTasksTest {
     @Test
     public void insertStringInMiddleSuccessful() {
         assertEquals("He, Worldllo", instance.insertStringInMiddle("Hello", ", World"));
-        assertEquals("St. \n" +
-                        " Andersan 7/10Tomeu",
+        assertEquals("St. " + System.lineSeparator()
+                        + " Andersan 7/10Tomeu",
                 instance.insertStringInMiddle("St. Tomeu", System.lineSeparator() + " Andersan 7/10"));
     }
 

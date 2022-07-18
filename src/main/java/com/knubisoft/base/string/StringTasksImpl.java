@@ -1,15 +1,28 @@
 package com.knubisoft.base.string;
 
+import java.util.*;
+
 public class StringTasksImpl implements StringTasks {
 
     @Override
     public String reverseString(String original) {
-        return null;
+        StringBuilder builder = new StringBuilder();
+        String[] array = Optional.ofNullable(original).orElseThrow(IllegalArgumentException::new)
+                .split("");
+        for (int i = array.length - 1; i >= 0; i--) {
+            builder.append(array[i]);
+        }
+        return builder.toString();
     }
 
     @Override
     public String insertStringInMiddle(String original, String toInsert) {
-        return null;
+        if (original == null || toInsert == null || original.isEmpty() || toInsert.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+        int length = original.length();
+        return original.substring(0, length / 2) + toInsert
+                + original.substring(length / 2, length);
     }
 
     @Override
@@ -34,7 +47,12 @@ public class StringTasksImpl implements StringTasks {
 
     @Override
     public String uniqueCharacters(String str) {
-        return null;
+        String[] array = Optional.ofNullable(str).orElseThrow(IllegalArgumentException::new)
+                .toLowerCase().split("");
+        return Arrays.stream(array)
+                .filter(value -> Arrays.stream(array).filter(value::equals).count() == 1)
+                .reduce((x, y) -> x + y)
+                .orElseThrow();
     }
 
     @Override

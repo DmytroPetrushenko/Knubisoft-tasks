@@ -2,15 +2,16 @@ package com.knubisoft.base.reflection;
 
 import com.knubisoft.base.reflection.model.EntryModel;
 import com.knubisoft.base.reflection.model.InheritedEntryModel;
+import com.knubisoft.base.reflection.model.TestModel;
 import com.knubisoft.base.string.StringTasks;
 import com.knubisoft.base.string.StringTasksImpl;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Method;
 import java.util.NoSuchElementException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ReflectionTasksTest {
 
@@ -87,9 +88,26 @@ public class ReflectionTasksTest {
     }
 
     @Test
+    void isMethodHasAnnotation() throws NoSuchMethodException {
+        Method builder = InheritedEntryModel.class.getMethod("builder");
+        assertTrue(instance.isMethodHasAnnotation(builder, InheritedEntryModel.class));
+    }
+
+    @Test
+    void evaluateMethodByNameSuccessful() {
+        assertEquals("Hello", instance.evaluateMethodByName(TestModel.class, "returnString"));
+    }
+
+    @Test
+    void evaluateMethodByNameFail() {
+        assertThrows(NoSuchElementException.class, () -> instance
+                .evaluateMethodByName(TestModel.class, null));
+    }
+
+    @Test
     public void evaluateMethodByNameArgsSuccessful() {
         assertEquals("dlroW ,olleH",
-                instance.evaluateMethodWithArgsByName(new StringTasksImpl(), "reverseString","Hello, World"));
+                instance.evaluateMethodWithArgsByName(new StringTasksImpl(), "reverseString", "Hello, World"));
         assertEquals("He, Worldllo",
                 instance.evaluateMethodWithArgsByName(new StringTasksImpl(), "insertStringInMiddle",
                         "Hello", ", World"));
@@ -107,5 +125,23 @@ public class ReflectionTasksTest {
         assertThrows(IllegalArgumentException.class,
                 () -> instance.evaluateMethodWithArgsByName(new StringTasksImpl(),
                         "insertStringInMiddle", null));
+    }
+
+    @Test
+    void changePrivateFieldValueSuccessful() {
+        TestModel testModel = (TestModel) instance.changePrivateFieldValue(new TestModel(), "returnIt", "world");
+        assertEquals(new TestModel("world").returnString(), testModel.returnString());
+    }
+
+    @Test
+    public void changePrivateFieldValueFail() {
+        assertThrows(IllegalArgumentException.class,
+                () -> instance.changePrivateFieldValue(null, "returnIt", "world"));
+        assertThrows(IllegalArgumentException.class,
+                () -> instance.changePrivateFieldValue(new TestModel(), null, "world"));
+        assertThrows(IllegalArgumentException.class,
+                () -> instance.changePrivateFieldValue(new TestModel(), " ", "world"));
+        assertThrows(IllegalArgumentException.class,
+                () -> instance.changePrivateFieldValue(new TestModel(), "returnIt", null));
     }
 }
