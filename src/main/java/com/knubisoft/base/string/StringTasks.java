@@ -42,7 +42,7 @@ public interface StringTasks {
      *      input: {'Hello John', ' Doe'}
      *      output: {'Hello, John Doe'}
      * @param original - original string.
-     * @param toAppend - the string to append at he end.
+     * @param toAppend - the string to append at the end.
      * */
     String appendToString(StringBuilder original, String toAppend);
     /**
