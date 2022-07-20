@@ -22,7 +22,7 @@ public interface ValidationTasks {
     /**
      * Validate your instance (p.1 - p.5)
      * */
-    void validate(Object instance);
+    void validate(Object instance) throws IllegalAccessException;
     /**
      * Builder to create User
      * */
