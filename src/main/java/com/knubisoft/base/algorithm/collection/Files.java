@@ -1,4 +1,4 @@
-package algorithm.collection;
+package com.knubisoft.base.algorithm.collection;
 
 import java.io.File;
 import java.io.FileNotFoundException;

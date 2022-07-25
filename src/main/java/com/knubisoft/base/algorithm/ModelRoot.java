@@ -1,4 +1,4 @@
-package algorithm;
+package com.knubisoft.base.algorithm;
 
 import java.util.List;
 

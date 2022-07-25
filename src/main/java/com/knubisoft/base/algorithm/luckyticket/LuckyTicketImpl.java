@@ -1,4 +1,4 @@
-package algorithm.luckyticket;
+package com.knubisoft.base.algorithm.luckyticket;
 
 public class LuckyTicketImpl implements LuckyTicket {
     @Override

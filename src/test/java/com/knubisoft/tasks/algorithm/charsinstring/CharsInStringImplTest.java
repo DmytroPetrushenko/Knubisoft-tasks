@@ -1,7 +1,7 @@
 package com.knubisoft.tasks.algorithm.charsinstring;
 
-import algorithm.charsinstring.CharsInString;
-import algorithm.charsinstring.CharsInStringImpl;
+import com.knubisoft.base.algorithm.charsinstring.CharsInString;
+import com.knubisoft.base.algorithm.charsinstring.CharsInStringImpl;
 import org.apache.commons.lang3.tuple.Pair;
 import org.junit.jupiter.api.Test;
 

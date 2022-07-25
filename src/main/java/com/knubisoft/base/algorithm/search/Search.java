@@ -1,4 +1,4 @@
-package algorithm.search;
+package com.knubisoft.base.algorithm.search;
 
 public interface Search {
 

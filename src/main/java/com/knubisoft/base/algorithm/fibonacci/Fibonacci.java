@@ -1,4 +1,4 @@
-package algorithm.fibonacci;
+package com.knubisoft.base.algorithm.fibonacci;
 
 public interface Fibonacci {
     /**

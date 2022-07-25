@@ -1,7 +1,7 @@
 package com.knubisoft.tasks.algorithm.fibonacci;
 
-import algorithm.fibonacci.Fibonacci;
-import algorithm.fibonacci.FibonacciImpl;
+import com.knubisoft.base.algorithm.fibonacci.Fibonacci;
+import com.knubisoft.base.algorithm.fibonacci.FibonacciImpl;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

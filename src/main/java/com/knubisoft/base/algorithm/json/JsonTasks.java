@@ -1,6 +1,6 @@
-package algorithm.json;
+package com.knubisoft.base.algorithm.json;
 
-import algorithm.ModelRoot;
+import com.knubisoft.base.algorithm.ModelRoot;
 
 import java.util.List;
 import java.util.Map;

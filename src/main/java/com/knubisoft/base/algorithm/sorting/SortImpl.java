@@ -1,4 +1,4 @@
-package algorithm.sorting;
+package com.knubisoft.base.algorithm.sorting;
 
 import java.util.List;
 import java.util.Map;

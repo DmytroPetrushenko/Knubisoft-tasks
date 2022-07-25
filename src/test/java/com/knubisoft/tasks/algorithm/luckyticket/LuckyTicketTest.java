@@ -1,7 +1,7 @@
 package com.knubisoft.tasks.algorithm.luckyticket;
 
-import algorithm.luckyticket.LuckyTicket;
-import algorithm.luckyticket.LuckyTicketImpl;
+import com.knubisoft.base.algorithm.luckyticket.LuckyTicket;
+import com.knubisoft.base.algorithm.luckyticket.LuckyTicketImpl;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;

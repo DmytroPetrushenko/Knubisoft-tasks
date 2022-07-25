@@ -1,6 +1,6 @@
-package algorithm.xml;
+package com.knubisoft.base.algorithm.xml;
 
-import algorithm.ModelRoot;
+import com.knubisoft.base.algorithm.ModelRoot;
 import lombok.SneakyThrows;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;

@@ -1,4 +1,4 @@
-package algorithm.pascaltriangle;
+package com.knubisoft.base.algorithm.pascaltriangle;
 
 import java.util.List;
 

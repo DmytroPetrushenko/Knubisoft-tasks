@@ -37,12 +37,9 @@ public class BoolTasksImpl implements BoolTasks {
 
     @Override
     public boolean andFunction(int digit, String string) {
-        try {
-            if (string != null && !string.isBlank() && digit == Integer.parseInt(string)) {
-                return true;
-            }
-        } catch (NumberFormatException e) {
-            return false;
+        if (string != null && !string.isBlank() && string.matches("\\d+")
+                && digit == Integer.parseInt(string)) {
+            return true;
         }
         return false;
     }
