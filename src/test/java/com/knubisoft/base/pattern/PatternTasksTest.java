@@ -107,6 +107,8 @@ public class PatternTasksTest {
         assertEquals("1#000", instance.divideDigit(1000));
         assertEquals("10#000", instance.divideDigit(10000));
         assertEquals("100#000", instance.divideDigit(100000));
+        assertEquals("1#000#000", instance.divideDigit(1000000));
+        assertEquals("1#000#000#000", instance.divideDigit(1000000000));
     }
 
     @Test

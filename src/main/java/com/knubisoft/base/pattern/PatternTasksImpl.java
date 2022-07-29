@@ -46,7 +46,7 @@ public class PatternTasksImpl implements PatternTasks {
         if (text == null || text.isBlank()) {
             throw new IllegalArgumentException();
         }
-        return text.replaceAll("[QEYUIOAqeyuioa]", "");
+        return text.replaceAll("[EYUIOAeyuioa]", "");
     }
 
     @Override
@@ -60,7 +60,10 @@ public class PatternTasksImpl implements PatternTasks {
     @Override
     public String divideDigit(int digit) {
         String value = String.valueOf(digit);
-        return value.replaceAll("000\\b", "#000");
+        for (int i = 0; i < value.length() / 3; i++) {
+            value = value.replaceAll("\\B\\d{3}\\b", "#000");
+        }
+        return value;
     }
 
     @Override
